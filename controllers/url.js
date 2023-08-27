@@ -15,7 +15,7 @@ const createUrl = async (req, res)=>{
             const {email} = req.email;
             await User.findOneAndUpdate({email}, {$push:{urls:exUrl._id}},{new:true});
             return res.status(200).json({
-                message:'ShortUrl created',
+                message:'Short URL created',
             })
         }
         else{
@@ -24,10 +24,12 @@ const createUrl = async (req, res)=>{
             
             const {email} = req.email;
             await User.findOneAndUpdate({email}, {$push:{urls:shortUrl._id}},{new:true});
-            return res.status(200).json({
-                message:'ShortUrl created',
-                shortUrl:`localhost:4000/url/${shortID}`,
-            })
+            // return res.status(200).json({
+            //     message:'ShortUrl created',
+            //     shortUrl:`localhost:4000/url/${shortID}`,
+            // })
+            const shortURL = `localhost:4000/url/${shortID}`;
+            return res.render('createUrl', {shortUrl:shortURL});
         }
     }catch(err){
         return res.status(500).json({
