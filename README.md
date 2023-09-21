@@ -51,6 +51,21 @@ Any kind of contributions are welcome.
   yarn run dev
   ```
 
+     ## For pnpm
+   - **Clone** the project to your own machine by using Git.
+   ```sh
+   git clone https://github.com/<your-username>/url-shortener.git
+   ```
+
+- To install **dependencies**, run following command
+  ```sh
+  pnpm install
+  ```
+- To Start **development** server, run following command
+  ```sh
+  pnpm run dev
+  ```
+
 5. **Commit** changes to **development** branch.
 6. **Push** your work back up to your fork.
 7. make a **Pull request**
