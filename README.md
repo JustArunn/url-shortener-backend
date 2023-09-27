@@ -47,15 +47,18 @@ Any kind of contributions are welcome.
   yarn
   ```
 - To Start **development** server, run following command
+
   ```sh
   yarn run dev
   ```
 
-     ## For pnpm
-   - **Clone** the project to your own machine by using Git.
-   ```sh
-   git clone https://github.com/<your-username>/url-shortener.git
-   ```
+  ## For pnpm
+
+  - **Clone** the project to your own machine by using Git.
+
+  ```sh
+  git clone https://github.com/<your-username>/url-shortener.git
+  ```
 
 - To install **dependencies**, run following command
   ```sh
