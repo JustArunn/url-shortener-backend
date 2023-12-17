@@ -2,6 +2,6 @@
 POST : http://localhost:4000/user/signup
 POST : http://localhost:4000/user/login
 
-// Create and Redirect URL routes
+// Create and Redirect URL routes (Procted Routes)
 POST :  http://localhost:4000/url/createUrl
 POST :  http://localhost:4000/url/shortId

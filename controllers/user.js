@@ -46,7 +46,7 @@ const login = async (req, res) => {
     } else {
       //JWT
       const token = jwt.sign({ email }, process.env.JWT_SECRET, {
-        expiresIn: "24h",
+        expiresIn: "20h",
       });
       return res
         .setHeader("Authorization", "Bearer " + token)
