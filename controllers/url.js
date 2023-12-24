@@ -33,7 +33,7 @@ const createUrl = async (req, res) => {
       );
       return res.status(200).json({
         message: "ShortUrl created",
-        shortUrl: `localhost:4000/url/${shortID}`,
+        shortUrl: `${process.env.BASE_URL}/url/${shortID}`,
       });
     }
   } catch (err) {
