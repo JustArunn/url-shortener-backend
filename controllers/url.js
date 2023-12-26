@@ -43,6 +43,29 @@ const createUrl = async (req, res) => {
   }
 };
 
+const getUrls = async (req, res) => {
+  try {
+    const { email } = req.email;
+    const exUser = await User.findOne({ email }).populate("urls").exec();
+    if (exUser) {
+      return res.status(200).json({
+        success: true,
+        urls: exUser.urls,
+      });
+    } else {
+      res.status(200).json({
+        success: true,
+        message: "You haven't created any URL",
+      });
+    }
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Something Went wrong while fetching urls",
+    });
+  }
+};
+
 const redirectUrl = async (req, res) => {
   try {
     const { shortId } = req.params;
@@ -60,10 +83,16 @@ const redirectUrl = async (req, res) => {
         return res.redirect(shortDoc.redirectUrl);
       }
     }
-  } catch (err) {}
+  } catch (err) {
+    res.status(401).json({
+      success: false,
+      message: "someting went wrong in redirect URL route",
+    });
+  }
 };
 
 module.exports = {
   createUrl,
   redirectUrl,
+  getUrls,
 };

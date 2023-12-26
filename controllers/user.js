@@ -11,18 +11,20 @@ const signup = async (req, res) => {
     }
     const exUser = await User.findOne({ email });
     if (exUser) {
-      return res.status(401).json({
+      return res.status(409).json({
         message: "User already exists",
       });
     } else {
       const newUser = User({ name, email, password });
       await newUser.save();
       return res.status(200).json({
+        success: true,
         message: "User created successfully",
       });
     }
   } catch (err) {
     return res.status(500).json({
+      success: false,
       message: err.message,
     });
   }
@@ -53,8 +55,9 @@ const login = async (req, res) => {
         .status(200)
         .json({
           message: "User loggedIn",
-          loggedInUser: exUser,
+          success: true,
           token,
+          exUser
         });
     }
   } catch (err) {
